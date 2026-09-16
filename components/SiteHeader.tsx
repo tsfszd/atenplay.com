@@ -1,0 +1,2 @@
+import Link from 'next/link';
+export function SiteHeader(){return <header className="site-header"><Link href="/" className="brand"><span>🎮</span><span>Aten<b>Play</b><small>PLAY · EXPLORE · ENJOY</small></span></Link><nav><Link href="/">Home</Link><Link href="/#games">Games</Link><Link href="/#about">About</Link><Link href="/privacy">Privacy</Link></nav><Link className="button compact" href="/#games">Explore Games</Link></header>}
