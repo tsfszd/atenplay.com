@@ -1,30 +1,81 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#080a10">
-<meta name="description" content="AtenPlay — original mobile games: ArrowMaze, Break It!, SkyWings, PongMaster and BrickBreaker.">
-<title>AtenPlay — Play Something Different</title>
-<style>
-:root{--bg:#080a10;--panel:#111520;--text:#f6f7fb;--muted:#a6adbd;--line:rgba(255,255,255,.09);--violet:#8b5cf6;--cyan:#22d3ee}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 18% -8%,rgba(139,92,246,.17),transparent 30%),radial-gradient(circle at 92% 18%,rgba(34,211,238,.11),transparent 27%),var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.5}a{color:inherit;text-decoration:none}.wrap{width:min(1180px,calc(100% - 40px));margin:auto}.nav{height:78px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}.brand{display:flex;align-items:center;gap:11px;font-size:24px;font-weight:900;letter-spacing:-.04em}.mark{width:34px;height:34px;border-radius:11px;background:conic-gradient(from 220deg,var(--violet),#ec4899,var(--cyan),var(--violet));position:relative;box-shadow:0 0 35px rgba(139,92,246,.35)}.mark:after{content:"";position:absolute;inset:8px;background:var(--bg);clip-path:polygon(0 0,100% 50%,0 100%)}.navlinks{display:flex;gap:24px;color:#c8cedb;font-size:14px}.hero{padding:92px 0 72px;display:grid;grid-template-columns:1.08fr .92fr;gap:70px;align-items:center}.eyebrow{display:inline-flex;align-items:center;gap:8px;padding:7px 11px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.03);font-size:12px;letter-spacing:.13em;text-transform:uppercase}.dot{width:7px;height:7px;border-radius:50%;background:#5ee7a4;box-shadow:0 0 15px #5ee7a4}.hero h1{font-size:clamp(50px,7vw,88px);line-height:.94;letter-spacing:-.065em;margin:24px 0 22px}.gradient{background:linear-gradient(105deg,#fff 5%,#b8c3ff 45%,#7de4ff 85%);background-clip:text;-webkit-background-clip:text;color:transparent}.hero p{max-width:610px;margin:0 0 30px;color:var(--muted);font-size:18px}.actions{display:flex;gap:12px;flex-wrap:wrap}.btn{display:inline-block;padding:13px 18px;border-radius:12px;border:1px solid var(--line);background:#151925;font-size:14px;font-weight:750}.btn.primary{background:#fff;color:#0b0d13;border-color:#fff}.hero-art{aspect-ratio:1;border:1px solid var(--line);border-radius:32px;position:relative;overflow:hidden;background:linear-gradient(145deg,#151830,#0b1420 58%,#0a0d14);box-shadow:0 30px 80px rgba(0,0,0,.35)}.hero-art:before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:38px 38px;mask-image:linear-gradient(#000,transparent)}.device{position:absolute;width:52%;height:70%;left:24%;top:15%;border:7px solid #252a38;border-radius:34px;background:#090b10;transform:rotate(7deg);box-shadow:0 30px 60px rgba(0,0,0,.55);overflow:hidden}.screen{position:absolute;inset:28px 10px 10px;border-radius:22px;overflow:hidden;background:linear-gradient(#14213d,#23395d 42%,#183c32 43%,#0f2418)}.screen:before{content:"";position:absolute;left:-20%;bottom:14%;width:140%;height:50%;background:#244239;clip-path:polygon(0 100%,12% 48%,22% 72%,39% 15%,53% 64%,70% 32%,84% 65%,100% 28%,100% 100%)}.bird{position:absolute;left:42%;top:45%;width:48px;height:21px;border-radius:60% 45% 55% 45%;background:#ffd166;box-shadow:0 0 20px rgba(255,209,102,.25)}.bird:before{content:"";position:absolute;left:10px;top:-8px;width:22px;height:12px;border-radius:100% 0;background:#f59e0b;transform:rotate(-24deg)}.orb{position:absolute;width:9px;height:9px;border-radius:50%;background:#6ef3ff;box-shadow:0 0 14px #6ef3ff}.o1{left:23%;top:29%}.o2{left:70%;top:38%}.o3{left:73%;top:62%}.section{padding:56px 0 92px}.section-head{display:flex;justify-content:space-between;align-items:end;gap:22px;margin-bottom:30px}.section h2{font-size:clamp(34px,4vw,54px);letter-spacing:-.045em;margin:0}.section-head p{max-width:440px;margin:0;color:var(--muted);font-size:14px}.games{display:grid;grid-template-columns:repeat(12,1fr);gap:18px}.card{grid-column:span 6;overflow:hidden;border:1px solid var(--line);border-radius:24px;background:linear-gradient(145deg,rgba(255,255,255,.055),rgba(255,255,255,.025));transition:.25s}.card:hover{transform:translateY(-4px);border-color:rgba(255,255,255,.18);box-shadow:0 24px 70px rgba(0,0,0,.2)}.card.wide{grid-column:span 12}.visual{height:310px;position:relative;overflow:hidden}.content{padding:24px}.meta{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-bottom:9px}.content h3{font-size:29px;letter-spacing:-.035em;margin:0}.tag{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#c9cfda;border:1px solid var(--line);border-radius:999px;padding:6px 9px;white-space:nowrap}.content p{margin:0 0 18px;color:var(--muted);max-width:780px}.facts{display:flex;gap:8px;flex-wrap:wrap}.fact{font-size:12px;padding:7px 9px;border-radius:8px;background:rgba(255,255,255,.05);color:#d8dce5}.source{display:block;margin-top:18px;padding-top:16px;border-top:1px solid var(--line);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#747d90}
-.maze{background:linear-gradient(#071427,#16233b 64%,#07101a)}.maze:before{content:"";position:absolute;width:82%;height:27%;left:9%;bottom:17%;background:linear-gradient(90deg,transparent 0 46%,#22d3ee 46% 54%,transparent 54%),#263149;transform:perspective(500px) rotateX(63deg) rotateZ(-9deg);box-shadow:0 0 0 4px #34435f,0 18px 40px rgba(0,0,0,.45)}.maze:after{content:"";position:absolute;left:48%;bottom:42%;width:27px;height:56px;background:#fff;clip-path:polygon(50% 0,100% 48%,68% 43%,66% 100%,34% 100%,32% 43%,0 48%);filter:drop-shadow(0 0 12px #fff)}
-.breakit{background:linear-gradient(140deg,#2a123d,#0d2c4c 55%,#063128)}.breakit:before{content:"";position:absolute;left:12%;right:12%;top:15%;height:132px;background:repeating-linear-gradient(90deg,transparent 0 4px,rgba(255,255,255,.08) 4px 6px),repeating-linear-gradient(0deg,#ff7b54 0 22px,#8b5cf6 22px 44px,#22d3ee 44px 66px,#f472b6 66px 88px);background-size:52px 100%;border-radius:8px;box-shadow:inset 0 -4px rgba(0,0,0,.18)}.breakit:after{content:"";position:absolute;width:120px;height:15px;border-radius:10px;left:calc(50% - 60px);bottom:14%;background:linear-gradient(90deg,#22d3ee,#fff,#22d3ee);box-shadow:0 0 22px rgba(34,211,238,.5)}
-.sky{background:linear-gradient(#18294d,#355b72 45%,#183c33)}.sky:before{content:"";position:absolute;left:-8%;right:-8%;bottom:0;height:58%;background:#183a31;clip-path:polygon(0 100%,0 78%,10% 52%,19% 70%,33% 18%,47% 66%,59% 35%,72% 60%,84% 22%,100% 59%,100% 100%)}.sky:after{content:"";position:absolute;left:44%;top:43%;width:82px;height:38px;border-radius:70% 45% 60% 45%;background:#f4c95d;transform:rotate(-8deg);box-shadow:0 0 25px rgba(244,201,93,.35)}
-.pong{background:linear-gradient(145deg,#221a18,#0b1015 70%)}.pong:before{content:"";position:absolute;width:72%;height:50%;left:14%;bottom:10%;background:linear-gradient(90deg,transparent 49.5%,#e6eef3 49.5% 50.5%,transparent 50.5%),#245f74;transform:perspective(500px) rotateX(58deg);border:6px solid #e6eef3;box-shadow:0 25px 45px rgba(0,0,0,.45)}.pong:after{content:"";position:absolute;left:60%;top:32%;width:19px;height:19px;border-radius:50%;background:#fff;box-shadow:0 0 14px rgba(255,255,255,.55)}
-.brickbreaker{background:radial-gradient(circle at 50% 84%,rgba(139,92,246,.23),transparent 36%),linear-gradient(#07111f,#0a0d16)}.brickbreaker:before{content:"";position:absolute;left:13%;right:13%;top:14%;height:145px;background:repeating-linear-gradient(90deg,transparent 0 5px,rgba(255,255,255,.08) 5px 7px),repeating-linear-gradient(0deg,#38bdf8 0 28px,#8b5cf6 28px 56px,#f472b6 56px 84px,#2563eb 84px 112px);background-size:49px 100%;border-radius:6px}.brickbreaker:after{content:"";position:absolute;width:135px;height:17px;border-radius:12px;left:calc(50% - 67px);bottom:11%;background:#e2e8f0;box-shadow:0 0 18px rgba(226,232,240,.35)}.statement{margin-top:86px;padding:48px;border:1px solid var(--line);border-radius:26px;background:linear-gradient(135deg,rgba(139,92,246,.08),rgba(34,211,238,.06));display:flex;align-items:center;justify-content:space-between;gap:30px}.statement h3{font-size:32px;letter-spacing:-.04em;margin:0 0 8px}.statement p{margin:0;color:var(--muted);max-width:650px}.footer{padding:38px 0 46px;border-top:1px solid var(--line);display:flex;justify-content:space-between;color:#737b8d;font-size:12px}.footer strong{color:#b9bfcc}@media(max-width:820px){.navlinks{display:none}.hero{grid-template-columns:1fr;padding-top:64px;gap:42px}.hero-art{width:100%;max-width:520px;margin:auto}.section-head{align-items:start;flex-direction:column}.card,.card.wide{grid-column:span 12}.visual{height:260px}.statement{padding:32px;align-items:flex-start;flex-direction:column}.footer{gap:12px;flex-direction:column}}@media(max-width:520px){.wrap{width:min(100% - 24px,1180px)}.hero{padding-top:48px}.hero h1{font-size:52px}.content{padding:19px}.content h3{font-size:25px}.meta{align-items:flex-start}.visual{height:225px}.statement{padding:24px;margin-top:62px}}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="AtenPlay creates bold, social-first games for mobile players.">
+  <title>AtenPlay — Games worth gathering for</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/styles.css">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
 </head>
 <body>
-<header class="wrap nav"><a class="brand" href="#top"><span class="mark"></span>AtenPlay</a><nav class="navlinks"><a href="#games">Games</a><a href="#studio">Studio</a></nav></header>
-<main id="top">
-<section class="wrap hero"><div><span class="eyebrow"><span class="dot"></span>Independent game studio</span><h1>Small screens.<br><span class="gradient">Big play.</span></h1><p>AtenPlay builds focused mobile games with tactile controls, strong visual worlds and one simple goal: make the next round impossible to resist.</p><div class="actions"><a class="btn primary" href="#games">Explore the games</a><a class="btn" href="#studio">About AtenPlay</a></div></div><div class="hero-art" aria-hidden="true"><div class="device"><div class="screen"><span class="bird"></span><i class="orb o1"></i><i class="orb o2"></i><i class="orb o3"></i></div></div></div></section>
-<section class="wrap section" id="games"><div class="section-head"><h2>Our games</h2><p>Five distinct worlds, from precision runners and cinematic flying to table tennis and two very different takes on brick breaking.</p></div><div class="games">
-<article class="card"><div class="visual maze" role="img" aria-label="Stylized ArrowMaze preview"></div><div class="content"><div class="meta"><h3>ArrowMaze</h3><span class="tag">3D timing runner</span></div><p>Hit glowing corners at exactly the right moment, dodge rotating sweep bars, collect energy and race your arrow to the portal.</p><div class="facts"><span class="fact">Unreal Engine</span><span class="fact">Android-first</span><span class="fact">Touch timing</span></div><span class="source">Project reference · ArrowMaze</span></div></article>
-<article class="card"><div class="visual breakit" role="img" aria-label="Stylized Break It preview"></div><div class="content"><div class="meta"><h3>Break It!</h3><span class="tag">Brick breaker</span></div><p>A long-form brick-breaking campaign built across 500 levels and 25 themed worlds, each with its own atmosphere, palette and progression.</p><div class="facts"><span class="fact">500 levels</span><span class="fact">25 worlds</span><span class="fact">Unity</span></div><span class="source">Visual library · Design/Mockups · BreakIt project</span></div></article>
-<article class="card wide"><div class="visual sky" role="img" aria-label="Stylized SkyWings preview"></div><div class="content"><div class="meta"><h3>SkyWings</h3><span class="tag">Story-led flying</span></div><p>Guide Pip through a layered 2.5D world of hills, ruins and obstacles. Flap with precision, keep your momentum and push deeper into a cinematic flying journey.</p><div class="facts"><span class="fact">2.5D</span><span class="fact">Portrait play</span><span class="fact">Unity 6 URP</span><span class="fact">Story campaign</span></div><span class="source">Project reference · SkyWings</span></div></article>
-<article class="card"><div class="visual pong" role="img" aria-label="Stylized PongMaster preview"></div><div class="content"><div class="meta"><h3>PongMaster</h3><span class="tag">Table tennis</span></div><p>A landscape mobile table-tennis game with real-time 3D ball physics, touch-driven placement, spin, smashes and career AI opponents.</p><div class="facts"><span class="fact">2.5D presentation</span><span class="fact">3D physics</span><span class="fact">Career AI</span></div><span class="source">Project reference · PongMaster</span></div></article>
-<article class="card"><div class="visual brickbreaker" role="img" aria-label="Stylized BrickBreaker preview"></div><div class="content"><div class="meta"><h3>BrickBreaker</h3><span class="tag">3D arcade</span></div><p>Break every brick across 100 deterministic levels, catch powerful drops and keep the rally alive in a portrait-first 3D arcade challenge.</p><div class="facts"><span class="fact">100 levels</span><span class="fact">6 power-ups</span><span class="fact">Unity 6</span></div><span class="source">Visual library · StoreAssets · BrickBreaker project</span></div></article>
-</div><div class="statement" id="studio"><div><h3>Built to feel good in your hands.</h3><p>AtenPlay focuses on responsive mobile-first mechanics, replayable systems and clear visual identity. Every game starts with a small interaction and grows from there.</p></div><a class="btn primary" href="#top">Back to top</a></div></section>
-</main><footer class="wrap footer"><span><strong>AtenPlay</strong> · Independent games</span><span>© 2026 AtenPlay. All rights reserved.</span></footer>
-</body></html>
+  <header class="nav" id="top">
+    <a class="brand" href="#top" aria-label="AtenPlay home"><img class="brand-mark" src="assets/aten-mark.svg" alt="" width="34" height="33"><span aria-hidden="true">ten<span class="brand-play">Play</span></span></a>
+    <nav aria-label="Main navigation">
+      <a href="#games">Games</a><a href="#studio">Studio</a><a href="#contact">Contact</a>
+    </nav>
+    <a class="nav-cta" href="#games">Explore games</a>
+  </header>
+
+  <main>
+    <section class="hero">
+      <img class="hero-art" src="assets/hero.webp" alt="A neon brick arena merging into a fantasy fortress landscape">
+      <div class="hero-shade"></div>
+      <div class="hero-copy">
+        <p class="eyebrow">Independent game studio</p>
+        <h1>Play bold.<br><span>Build legends.</span></h1>
+        <p class="lead">AtenPlay makes worlds that are easy to enter, hard to leave, and better with friends.</p>
+        <div class="hero-actions"><a class="button primary" href="#games">Meet our games</a><a class="button ghost" href="#studio">About AtenPlay</a></div>
+      </div>
+      <div class="hero-stat" aria-label="Studio focus"><strong>Mobile first</strong><span>Designed for quick play and long-term mastery</span></div>
+    </section>
+
+    <section class="games" id="games">
+      <div class="section-head"><div><p class="eyebrow">In development</p><h2>Four worlds. One obsession.</h2></div><p>Fresh ideas, tactile play, and social systems built to keep every session meaningful.</p></div>
+      <div class="game-grid">
+        <article class="game-card breaker">
+          <img src="assets/brickbreaker.webp" alt="Glowing ball and paddle facing colorful three-dimensional bricks">
+          <div class="card-overlay"></div>
+          <div class="card-copy"><span class="status">Arcade • Mobile</span><h3>BrickBreaker</h3><p>Smash through handcrafted 3D arenas, master wild power-ups, and challenge rivals online.</p><a href="#contact" aria-label="Follow BrickBreaker development">Follow development <span>↗</span></a></div>
+        </article>
+        <article class="game-card siege">
+          <img src="assets/siegeborne.webp" alt="Fantasy heroes defending a fortress beneath a dragon">
+          <div class="card-overlay"></div>
+          <div class="card-copy"><span class="status">Strategy • RPG</span><h3>Siegeborne</h3><p>Raise your stronghold, rally legendary heroes, and take on rival towns in tactical battles.</p><a href="#contact" aria-label="Follow Siegeborne development">Follow development <span>↗</span></a></div>
+        </article>
+        <article class="game-card skywings">
+          <img src="assets/skywings.webp" alt="A heroic sky rider flying between floating islands and storm clouds">
+          <div class="card-overlay"></div>
+          <div class="card-copy"><span class="status">Aerial Adventure • Mobile</span><h3>SkyWings</h3><p>Soar through impossible skies, master high-speed flight, and chart a course beyond the clouds.</p><a href="#contact" aria-label="Follow SkyWings development">Follow development <span>↗</span></a></div>
+        </article>
+        <article class="game-card crown">
+          <img src="assets/crown-of-the-weil.webp" alt="An enchanted crown suspended before a ruined fantasy throne">
+          <div class="card-overlay"></div>
+          <div class="card-copy"><span class="status">Fantasy Adventure • RPG</span><h3>Crown of the Veil</h3><p>Cross the shimmering Veil, reclaim a forgotten crown, and decide who inherits a fractured realm.</p><a href="#contact" aria-label="Follow Crown of the Veil development">Follow development <span>↗</span></a></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="studio" id="studio">
+      <div class="studio-title"><p class="eyebrow">The studio</p><h2>Games with a pulse.</h2></div>
+      <div class="studio-copy"><p>We’re building AtenPlay around a simple belief: a great game should feel alive from the first tap.</p><p>Our projects blend responsive mechanics, distinctive worlds, and meaningful ways to play together—without losing the joy of a focused solo session.</p></div>
+      <div class="principles">
+        <div><span>01</span><h3>Play comes first</h3><p>Every system earns its place through the experience it creates.</p></div>
+        <div><span>02</span><h3>Built to connect</h3><p>Competition and collaboration should create real stories.</p></div>
+        <div><span>03</span><h3>Made to last</h3><p>Strong foundations let our worlds grow with their players.</p></div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <p class="eyebrow">Stay in the loop</p><h2>The next world<br>is loading.</h2>
+      <p>Follow AtenPlay as our first four worlds take shape.</p>
+      <a class="button primary" href="mailto:hello@atenplay.com">hello@atenplay.com</a>
+    </section>
+  </main>
+  <footer><a class="brand" href="#top" aria-label="AtenPlay home"><img class="brand-mark" src="assets/aten-mark.svg" alt="" width="34" height="33"><span aria-hidden="true">ten<span class="brand-play">Play</span></span></a><p>© <span id="year"></span> AtenPlay. All rights reserved.</p><a href="#top">Back to top ↑</a></footer>
+  <script>document.getElementById('year').textContent=new Date().getFullYear();</script>
+</body>
+</html>

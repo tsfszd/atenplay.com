@@ -1,25 +1,11 @@
-# AtenPlay.com
+# AtenPlay
 
-Public showcase website for AtenPlay.
+AtenPlay studio website, synchronized with the published Sites version.
 
-## Games featured
+Featured games: BrickBreaker, Siegeborne, SkyWings, and Crown of the Veil.
 
-- **ArrowMaze** — source project: `tsfszd/ArrowMaze`
-- **Break It!** — source project: `tsfszd/BreakIt`
-- **SkyWings** — source project: `tsfszd/SkyWings`
-- **PongMaster** — source project: `tsfszd/PongMaster`
-- **BrickBreaker** — source project: `tsfszd/BrickBreaker`
+Open index.html or serve this directory with any static web server. No build step or dependencies are required. GitHub Pages serves the root directory; CNAME preserves the existing custom domain.
 
-Business/application repositories are intentionally excluded.
+The header and footer use the custom sun-cutout A in assets/aten-mark.svg. The browser icon is assets/favicon.svg. Artwork and styles are stored locally under assets/.
 
-## Visual references
-
-The current homepage uses lightweight CSS art derived from each game's documented visual/gameplay direction so the public site has no dependency on private repository assets.
-
-Canonical visual libraries to use when exporting production screenshots:
-
-- Break It!: `Design/Mockups/` (`BreakIt_25_Themes.svg`, `BreakIt_Core_Screens.svg`, `BreakIt_All_Levels.html`)
-- BrickBreaker: `StoreAssets/` (`BrickBreaker-FeatureGraphic.png`, `BrickBreaker-AppIcon.png`)
-- ArrowMaze, SkyWings and PongMaster: export representative gameplay captures from their current playable vertical slices.
-
-When final screenshots are ready, place web-optimized copies under `assets/screenshots/` in this public repository and swap each `.visual` panel in `index.html` to the matching image. Do not hotlink private GitHub assets from the public site.
+Published Sites URL: https://atenplay.tsfszd580277.chatgpt.site/
