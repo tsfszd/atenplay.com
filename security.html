@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="How AtenPlay protects players on Android and iOS: secure distribution, platform protections, data handling, and how to report a vulnerability.">
+  <title>Security — AtenPlay</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/styles.css">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+</head>
+<body>
+  <header class="nav" id="top">
+    <a class="brand" href="/" aria-label="AtenPlay home"><img class="brand-mark" src="assets/aten-mark.svg" alt="" width="34" height="33"><span aria-hidden="true">ten<span class="brand-play">Play</span></span></a>
+    <nav aria-label="Main navigation">
+      <a href="/#games">Games</a><a href="/#studio">Studio</a><a href="security.html" aria-current="page">Security</a><a href="/#contact">Contact</a>
+    </nav>
+    <a class="nav-cta" href="/#games">Explore games</a>
+  </header>
+
+  <main class="doc">
+    <section class="doc-hero">
+      <p class="eyebrow">Security</p>
+      <h1>Safe to play.<br><span>On every device.</span></h1>
+      <p class="lead">How we protect AtenPlay games and players on Android and iOS, and how to reach us if you find a problem.</p>
+      <p class="doc-updated">Last updated: September 27, 2026</p>
+    </section>
+
+    <nav class="doc-toc" aria-label="On this page">
+      <a href="#distribution">Official downloads</a><a href="#android">Android</a><a href="#ios">iOS</a><a href="#data">Accounts &amp; data</a><a href="#players">Staying safe</a><a href="#report">Report an issue</a>
+    </nav>
+
+    <section class="doc-section" id="distribution">
+      <h2>Official downloads only</h2>
+      <p>AtenPlay games are distributed exclusively through <strong>Google Play</strong> and the <strong>Apple App Store</strong>. Both stores verify the publisher and scan apps before they reach your device.</p>
+      <ul>
+        <li>Always check that the developer is listed as <strong>AtenPlay</strong> before installing.</li>
+        <li>We never distribute games as APK files, through third-party stores, or via links in messages and social media.</li>
+        <li>No one from AtenPlay will ask for your password, verification codes, or payment details.</li>
+      </ul>
+    </section>
+
+    <section class="doc-section platforms">
+      <article class="platform" id="android">
+        <span class="status">Android</span>
+        <h2>Android</h2>
+        <ul>
+          <li><strong>Play App Signing.</strong> Releases are signed through Google Play, so updates can only come from us.</li>
+          <li><strong>Google Play Protect.</strong> Our apps are scanned by Google on upload and on your device.</li>
+          <li><strong>Minimal permissions.</strong> We only request permissions a game genuinely needs, and ask at the moment they are used. You can revoke them any time in Settings&nbsp;→&nbsp;Apps.</li>
+          <li><strong>Encrypted connections.</strong> Online features use HTTPS/TLS; cleartext network traffic is disabled.</li>
+          <li><strong>App-private storage.</strong> Game data is kept in the app's private sandbox, not in shared storage other apps can read.</li>
+          <li><strong>Data safety.</strong> Each game's Google Play listing includes a Data safety section describing what is collected and why.</li>
+        </ul>
+      </article>
+      <article class="platform" id="ios">
+        <span class="status">iOS &amp; iPadOS</span>
+        <h2>iOS</h2>
+        <ul>
+          <li><strong>App Store review.</strong> Every release is reviewed by Apple before it is published.</li>
+          <li><strong>App sandbox.</strong> iOS isolates each app, so our games cannot access other apps' data.</li>
+          <li><strong>App Transport Security.</strong> Network connections are required to use HTTPS/TLS.</li>
+          <li><strong>Keychain.</strong> Sign-in tokens are stored in the iOS Keychain, protected by your device passcode.</li>
+          <li><strong>Tracking transparency.</strong> We ask for your permission before any tracking across other companies' apps and websites, and respect your choice.</li>
+          <li><strong>Privacy labels.</strong> Each game's App Store page shows its privacy details before you download.</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="doc-section" id="data">
+      <h2>Accounts &amp; data</h2>
+      <ul>
+        <li><strong>Purchases are handled by Apple and Google.</strong> In-app payments go through the App Store or Google Play billing; AtenPlay never sees or stores your card details.</li>
+        <li><strong>Encrypted in transit.</strong> Data sent between your device and our servers is encrypted with TLS.</li>
+        <li><strong>Collect less.</strong> We only collect what's needed to run the game, save your progress, and keep play fair.</li>
+        <li><strong>Fair play.</strong> We use server-side checks to detect cheating and protect competitive and online modes.</li>
+        <li><strong>Your control.</strong> You can ask us to access or delete your account data by emailing <a href="mailto:hello@atenplay.com">hello@atenplay.com</a>.</li>
+      </ul>
+    </section>
+
+    <section class="doc-section" id="players">
+      <h2>Staying safe while you play</h2>
+      <div class="tips">
+        <div><span>01</span><h3>Keep things updated</h3><p>Install the latest version of our games and your operating system to get security fixes.</p></div>
+        <div><span>02</span><h3>Beware of “free” offers</h3><p>Sites promising free currency or items are scams. Rewards only come from inside the game.</p></div>
+        <div><span>03</span><h3>Lock your device</h3><p>Use a passcode or biometrics, and enable purchase approval for children's devices.</p></div>
+      </div>
+    </section>
+
+    <section class="doc-section report" id="report">
+      <h2>Report a security issue</h2>
+      <p>If you believe you've found a vulnerability in an AtenPlay game, app, or website, please email us with the details and steps to reproduce. We'll acknowledge your report, keep you updated, and credit you if you wish.</p>
+      <p>Please don't access other players' data, disrupt our services, or publicly disclose the issue before we've had a chance to fix it.</p>
+      <a class="button primary" href="mailto:hello@atenplay.com?subject=Security%20report">hello@atenplay.com</a>
+    </section>
+  </main>
+  <footer><a class="brand" href="/" aria-label="AtenPlay home"><img class="brand-mark" src="assets/aten-mark.svg" alt="" width="34" height="33"><span aria-hidden="true">ten<span class="brand-play">Play</span></span></a><p>© <span id="year"></span> AtenPlay. All rights reserved.</p><a href="security.html">Security</a></footer>
+  <script>document.getElementById('year').textContent=new Date().getFullYear();</script>
+</body>
+</html>

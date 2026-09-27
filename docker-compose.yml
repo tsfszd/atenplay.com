@@ -1,0 +1,12 @@
+services:
+  atenplay:
+    build: .
+    image: atenplay:latest
+    container_name: atenplay_web
+    restart: unless-stopped
+    networks:
+      - dbnet
+
+networks:
+  dbnet:
+    external: true
