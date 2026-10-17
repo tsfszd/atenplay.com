@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Privacy policy for Pawns &amp; Masters: Ludo &amp; Chess (package com.atenplay.ludolegends) by AtenPlay: accounts, online play, chat, voice notes, purchases, Google AdMob ads and how to delete your account.">
+  <meta name="description" content="Privacy policy for Pawns &amp; Masters: Ludo &amp; Chess (package com.atenplay.ludolegends) by AtenPlay: accounts, friends, clans, chat, voice notes, coin purchases, ads and how to delete your account.">
   <title>Pawns &amp; Masters: Ludo &amp; Chess — Privacy Policy — AtenPlay</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,107 +24,142 @@
     <section class="doc-hero">
       <p class="eyebrow">Privacy Policy</p>
       <h1>Pawns &amp; Masters<br><span>Ludo &amp; Chess.</span></h1>
-      <p class="lead">This policy covers the Pawns &amp; Masters: Ludo &amp; Chess app for Android (package <strong>com.atenplay.ludolegends</strong>), published by <strong>AtenPlay</strong>. It covers the offline game and the online features that use our server, including accounts, friends, clans, chat, voice notes and purchases.</p>
+      <p class="lead">This policy covers the Pawns &amp; Masters: Ludo &amp; Chess app for Android (package <strong>com.atenplay.ludolegends</strong>), published by <strong>AtenPlay</strong>. It covers the local game and the online features that use our servers: accounts, friends, clans, chat, voice notes, rankings and coin purchases.</p>
       <p class="doc-updated">Last updated: October 17, 2026</p>
     </section>
 
     <nav class="doc-toc" aria-label="On this page">
-      <a href="#summary">Summary</a><a href="#account">Account and sign-in</a><a href="#online">Online play and social features</a><a href="#voice">Voice notes</a><a href="#purchases">Purchases</a><a href="#device">On your device</a><a href="#ads">Advertising</a><a href="#consent">Consent</a><a href="#google">Google Play</a><a href="#children">Children</a><a href="#delete">Deleting your account</a><a href="#rights">Your rights</a><a href="#contact-us">Contact</a>
+      <a href="#summary">Summary</a><a href="#local">Local game</a><a href="#account">Account and sign-in</a><a href="#profile">Profile and rankings</a><a href="#social">Friends and clans</a><a href="#chat">Chat and reports</a><a href="#voice">Voice notes</a><a href="#purchases">Coins and purchases</a><a href="#ads">Advertising</a><a href="#device">Device data</a><a href="#providers">Who processes data</a><a href="#retention">How long we keep data</a><a href="#children">Children</a><a href="#delete">Deleting your account</a><a href="#rights">Your rights</a><a href="#contact-us">Contact</a>
     </nav>
 
     <section class="doc-section" id="summary">
       <h2>Summary</h2>
       <ul>
-        <li>You can play the local game without an account. Online play, friends, clans, chat and purchases need an account.</li>
-        <li>Your account uses a username, an email address and a password (stored only as a one-way hash), or a verified Google account.</li>
-        <li>Online matches, friends, clan chat and reports are stored on our server to run the service. Voice notes are passed to the other players in your match and are not saved.</li>
-        <li>Gem purchases are processed by <strong>Google Play</strong>. We receive a purchase token to verify and credit the purchase.</li>
+        <li>The local game works without an account. Online play, friends, clans, chat, rankings and purchases need one.</li>
+        <li>An account stores a username, an email address and a password stored only as a one-way hash, or a verified Google account.</li>
+        <li>Other players can see your username, display name, avatar, rankings and, in your clan, your last-seen time.</li>
+        <li>Chat messages, reports and match records are stored on our server. Voice notes are relayed to the other players in your match and are not saved.</li>
+        <li>Coin purchases are processed by <strong>Google Play</strong>. We verify each purchase with Google before crediting coins.</li>
         <li>The free game shows ads from <strong>Google AdMob</strong>.</li>
         <li>We do not sell your personal information.</li>
       </ul>
     </section>
 
-    <section class="doc-section" id="account">
-      <h2>Account and sign-in</h2>
-      <p>To create an account you give us a <strong>username</strong>, an <strong>email address</strong> and a <strong>password</strong> (at least 10 characters). Passwords are stored only as a one-way cryptographic hash; we cannot read them.</p>
-      <p>You can instead sign in with <strong>Google</strong>. We receive the Google ID token that identifies your account and check that Google has verified your email address. We do not receive your Google password.</p>
-      <p>We use your email address to send account messages such as sign-in confirmations and password reset or account deletion links. Each link works once and expires within 30 minutes.</p>
+    <section class="doc-section" id="local">
+      <h2>Local game</h2>
+      <p>The local game runs on your device. Its settings and your ten most recent completed results are saved on the device only. This data is not sent to AtenPlay, and uninstalling the app or clearing its data in Android Settings&nbsp;→&nbsp;Apps deletes it.</p>
     </section>
 
-    <section class="doc-section" id="online">
-      <h2>Online play and social features</h2>
-      <p>When you use online features, our server stores and processes:</p>
+    <section class="doc-section" id="account">
+      <h2>Account and sign-in</h2>
+      <p>To create an account you choose a <strong>username</strong>, give an <strong>email address</strong> and a <strong>password</strong> of at least 10 characters. Passwords are stored only as a one-way hash, so we cannot read them.</p>
+      <p>You can instead sign in with <strong>Google</strong>. Our server receives the Google ID token that identifies your account, checks Google's signature and requires that Google has verified your email address. We do not receive your Google password. We keep your Google account's subject identifier so that the same account signs in to the same player profile.</p>
+      <p>We use your email address to send account messages: email verification, sign-in approvals, password reset and account deletion links. Each link is stored only as a hash, works once, and expires within 30 minutes.</p>
+      <p>To stop one Google account being used on several phones at once, the app sends a random phone identifier (a UUID created when the app is first opened) with Google sign-in. We store it against your account and ask you to confirm before the account moves to another phone.</p>
+      <p>When you sign in, we keep a hashed record of each signed-in device you trust, so that you do not have to confirm it again.</p>
+    </section>
+
+    <section class="doc-section" id="profile">
+      <h2>Profile and rankings</h2>
+      <p>Your profile includes your <strong>username</strong>, a <strong>display name</strong> (up to 32 characters), an optional short <strong>bio</strong> (up to 160 characters), an <strong>avatar</strong> you choose, the date your account was created and the last time you were online.</p>
+      <p>Your display name, avatar and game statistics appear on the public leaderboard, which ranks players by coins and results over the past week or all time. Players can search for others by username or display name.</p>
+    </section>
+
+    <section class="doc-section" id="social">
+      <h2>Friends and clans</h2>
       <ul>
-        <li><strong>Profile:</strong> your username, display name, avatar or crest choice, and player statistics shown to other players. Your email address and password hash are never shown to other players.</li>
-        <li><strong>Friends, groups and clans:</strong> friend requests, clan memberships, clan applications and invitations.</li>
-        <li><strong>Chat:</strong> messages you send in the global, friend and clan chat channels. Global chat shows only recent messages, and messages older than 30 minutes are deleted by an automatic clean-up. Other chat messages are kept so that you and the other members can read the conversation.</li>
-        <li><strong>Match data:</strong> the moves and results of online matches, so that the match can be played and resumed.</li>
-        <li><strong>Reports:</strong> if you report a player, we keep the report, the reported player's name and your reason, so that we can review it.</li>
-        <li><strong>Notifications:</strong> messages in your in-game inbox.</li>
+        <li><strong>Friends:</strong> we store friend requests, accepted friendships and the times they were made.</li>
+        <li><strong>Clans:</strong> we store clan names, descriptions, crests, the language each clan uses, membership, roles, join requests and invite codes. Public clans can be found by anyone; invite-only clans are joined with an invite code and a request approved by a clan master.</li>
+        <li><strong>What clanmates see:</strong> members of your clan can see your username, display name, avatar, your role, the date you joined and your last-seen time.</li>
       </ul>
-      <p>Our servers also process your IP address and request details as part of any connection, as all web servers do, for security and to keep the service running.</p>
+    </section>
+
+    <section class="doc-section" id="chat">
+      <h2>Chat and reports</h2>
+      <p>You can send messages in three channels: <strong>global</strong> chat, <strong>friend</strong> chat and <strong>clan</strong> chat. Each message is stored with its text, sender, channel and time, up to 500 characters. Global messages are kept for 7 days and then deleted automatically; the chat screen shows the most recent of them. Friend and clan messages are kept until your account or the clan is deleted.</p>
+      <p>To protect players, chat can be paused for 30 minutes if an account sends too many messages in a short time.</p>
+      <p>If you report a player, we store the report with the category you choose, optional details of up to 1,000 characters, the reporter, the reported player and the time. Our staff use these reports to review behaviour and to take action, such as removing content or an account. Reported content may be kept while a report is being reviewed.</p>
     </section>
 
     <section class="doc-section" id="voice">
       <h2>Voice notes</h2>
-      <p>During a human-only online match you can record a voice note of up to 10 seconds with the microphone button. The microphone is used only when you press the button, and the app asks for the Android microphone permission first. The recording is sent in small pieces through our server to the other players in that match. It is not saved on our servers after it has been delivered. Voice notes are limited to one every 15 seconds per player.</p>
+      <p>In a match with other human players you can record a voice note of up to 10 seconds with the microphone button. The microphone records only while you hold the button, and the app asks for the Android microphone permission first. The note is sent in small pieces through our server to the other players in that match. Our server relays the pieces and does not save them. A player can send one voice note every 15 seconds.</p>
       <p>You can decline the microphone permission. The rest of the game works without it.</p>
     </section>
 
     <section class="doc-section" id="purchases">
-      <h2>Purchases</h2>
-      <p>Gem packs are sold through <strong>Google Play Billing</strong>. Google Play processes your payment; AtenPlay never sees or stores your payment card details. After a purchase, the app sends the product ID and Google's purchase token to our server. The server checks the purchase with Google Play before crediting gems to your account. We keep the purchase record needed to prevent duplicate credits.</p>
-    </section>
-
-    <section class="doc-section" id="device">
-      <h2>Information stored on your device</h2>
-      <p>The local game saves its settings and your ten most recent completed results on your device. This data stays on your device and is removed when you uninstall the app or clear its data in Android Settings&nbsp;→&nbsp;Apps. Signing out removes your account session from the device.</p>
-      <p>The app asks for the <strong>Internet</strong> and <strong>network state</strong> permissions (for online play and ads), the <strong>Microphone</strong> permission (only for voice notes) and the <strong>Google advertising ID</strong> permission (for ads). It does not read your contacts, location, camera or fingerprint data.</p>
+      <h2>Coins and purchases</h2>
+      <p>Coins are sold through <strong>Google Play Billing</strong>. Google Play processes your payment; AtenPlay never sees or stores your payment card details.</p>
+      <p>After a purchase, the app sends the product ID and Google's purchase token to our server, together with a Google Play Integrity token that helps confirm the app is genuine. Our server checks the purchase with Google Play and then credits your coins. We store the purchase token, product ID, your account and the coins credited, so that a purchase is never credited twice.</p>
+      <p>Coins can also be earned by watching a rewarded ad, up to a daily limit. We record the coins you earn, so that the limit and your balance stay accurate.</p>
     </section>
 
     <section class="doc-section" id="ads">
       <h2>Advertising (Google AdMob)</h2>
-      <p>The free game uses Google AdMob to show ads. To deliver, measure and limit ads, and to prevent fraud, the AdMob SDK may collect and process:</p>
+      <p>The free app shows ads from Google AdMob: app-open ads, a banner, interstitial (full-screen) ads and rewarded ads that you choose to watch. To deliver, measure and limit ads, and to prevent fraud, the AdMob SDK may collect and process:</p>
       <ul>
         <li>your device's advertising ID (Android Advertising ID);</li>
         <li>your IP address and approximate location derived from it;</li>
         <li>device and app information such as model, operating system, language and app version;</li>
         <li>interactions with ads, such as views and taps.</li>
       </ul>
-      <p>Depending on your consent and region, ads may be personalised. Google's use of this data is governed by the <a href="https://policies.google.com/privacy">Google Privacy Policy</a>; see also <a href="https://policies.google.com/technologies/partner-sites">how Google uses information from apps that use its services</a>.</p>
-      <p>You can reset or delete your advertising ID, or opt out of personalised ads, in Android Settings&nbsp;→&nbsp;Google&nbsp;→&nbsp;Ads (or Settings&nbsp;→&nbsp;Privacy&nbsp;→&nbsp;Ads).</p>
+      <p>Google's use of this data is governed by the <a href="https://policies.google.com/privacy">Google Privacy Policy</a>; see also <a href="https://policies.google.com/technologies/partner-sites">how Google uses information from apps that use its services</a>. You can reset or delete your advertising ID, or opt out of personalised ads, in Android Settings&nbsp;→&nbsp;Google&nbsp;→&nbsp;Ads (or Settings&nbsp;→&nbsp;Privacy&nbsp;→&nbsp;Ads).</p>
     </section>
 
-    <section class="doc-section" id="consent">
-      <h2>Consent</h2>
-      <p>In the European Economic Area, the United Kingdom and Switzerland, the game asks for your consent through Google's consent message before personalised ads are shown. You can choose <strong>Consent</strong>, <strong>Do not consent</strong> or <strong>Manage options</strong>. If you do not consent, you may still see non-personalised ads.</p>
-      <p>In US states with privacy laws, you can opt out of the sale or sharing of your personal information for targeted advertising through the in-game privacy message.</p>
+    <section class="doc-section" id="device">
+      <h2>Device data and permissions</h2>
+      <ul>
+        <li><strong>Internet</strong> and network state: needed for online play, sign-in and ads.</li>
+        <li><strong>Microphone</strong>: only for voice notes, as described above.</li>
+        <li><strong>Advertising ID</strong>: used by AdMob, as described above.</li>
+      </ul>
+      <p>The game uses Google's ML Kit language tools on your device to identify the language of text and translate it, for example chat messages. ML Kit runs on your device. The translation models are downloaded from Google when needed. The app does not read your contacts, location, camera, photos or fingerprint.</p>
+      <p>The app also uses the Google Play in-app review prompt and the Google Play in-app update service, which are handled by Google Play.</p>
     </section>
 
-    <section class="doc-section" id="google">
-      <h2>Google Play</h2>
-      <p>The app is distributed through Google Play. Google Play may provide AtenPlay with aggregated statistics about installs, crashes and app performance, and only if you have allowed your device to share usage and diagnostics data.</p>
+    <section class="doc-section" id="providers">
+      <h2>Who processes your data</h2>
+      <p>We use the following service providers to run the app:</p>
+      <ul>
+        <li><strong>AtenPlay</strong> operates the game servers and the database that store the account, social and match data described above.</li>
+        <li><strong>Google</strong> provides Google Sign-In, Google Play Billing, the Play Integrity service, Google Mobile Ads (AdMob), ML Kit and in-app updates and reviews.</li>
+        <li><strong>An email delivery provider</strong> sends the account emails described above.</li>
+      </ul>
+      <p>Our servers also record technical information, such as IP addresses and error details, needed to keep the service secure and working. We do not sell personal information, and we share it only with these providers or where the law requires it.</p>
+    </section>
+
+    <section class="doc-section" id="retention">
+      <h2>How long we keep data</h2>
+      <ul>
+        <li><strong>Account and profile:</strong> until you delete your account.</li>
+        <li><strong>Global chat:</strong> 7 days.</li>
+        <li><strong>Friend and clan chat:</strong> until your account is deleted or the clan is deleted.</li>
+        <li><strong>Reports:</strong> while they are reviewed and, where action was taken, for as long as needed to keep records of that action.</li>
+        <li><strong>Email links:</strong> hashed, and cleared after they expire or are used.</li>
+        <li><strong>Trusted device records:</strong> until you sign out of that device or delete your account.</li>
+        <li><strong>Purchase records:</strong> the purchase token and coins credited are kept so that purchases are not credited twice, and may be kept longer where needed for accounting, tax or fraud prevention.</li>
+      </ul>
     </section>
 
     <section class="doc-section" id="children">
       <h2>Children</h2>
-      <p>The game is not directed at children under 13. Online features include chat and voice notes between players, so we do not allow accounts for children under 13 and we do not knowingly collect personal information from them. If you believe a child under 13 has created an account, contact us and we will delete it.</p>
+      <p>The game is not directed at children under 13. Online features include chat, friends and clans, and voice notes between players, so they are intended for players aged 13 and over. If we learn that a child under 13 has created an account, we will delete it. If you believe a child under 13 has provided us with personal information, contact us and we will delete it.</p>
     </section>
 
     <section class="doc-section" id="delete">
       <h2>Deleting your account</h2>
-      <p>You can permanently delete your account and its data in two ways:</p>
+      <p>You can permanently delete your account in two ways:</p>
       <ul>
-        <li><strong>In the app:</strong> open your account settings and choose Delete account. Password accounts must enter the password again; Google-only accounts must type DELETE to confirm.</li>
+        <li><strong>In the app:</strong> open your account settings and choose to delete your account. Accounts with a password must enter the password again; Google-only accounts must type DELETE to confirm.</li>
         <li><strong>On the web:</strong> open the account deletion page, enter the email address and password of your account, then open the one-time confirmation link we email to you.</li>
       </ul>
-      <p>Deleting your account removes your profile, friends, clan memberships, chat messages, match records and inbox. If you own a clan, ownership passes to its longest-standing member. Some records may be kept for a short time where the law requires it, such as purchase records needed for tax or fraud prevention. Deleting the app alone does not delete your server account.</p>
+      <p>Deleting your account removes your profile, friends, friend requests, clan memberships, chat messages, notifications, reports you made, trusted devices and email links. If you own a clan, ownership passes to its longest-standing member, or the clan is deleted if no one else is in it. Purchase records are handled as described in the retention section. Deleting the app alone does not delete your server account.</p>
     </section>
 
     <section class="doc-section" id="rights">
       <h2>Your rights</h2>
       <p>Depending on where you live, you may have the right to access, correct or delete personal data, to object to or restrict its processing, and to withdraw consent. To exercise these rights, use the account deletion options above or email us. For data held by Google, use your <a href="https://myaccount.google.com/data-and-privacy">Google Account privacy settings</a>.</p>
-      <p>We keep data only as long as needed for the purposes above. We may update this policy; the date at the top shows the latest version.</p>
+      <p>We may update this policy; the date at the top shows the latest version.</p>
     </section>
 
     <section class="doc-section report" id="contact-us">
