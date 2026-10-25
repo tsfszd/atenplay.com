@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Delete your Backgammon: The Velvet Table account and the friend-game data linked to it.">
+  <title>Delete Your Account — Backgammon: The Velvet Table — AtenPlay</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/styles.css">
+  <link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg">
+</head>
+<body>
+  <header class="nav" id="top">
+    <a class="brand" href="/" aria-label="AtenPlay home"><img class="brand-mark" src="../../assets/aten-mark.svg" alt="" width="34" height="33"><span aria-hidden="true">ten<span class="brand-play">Play</span></span></a>
+    <nav aria-label="Main navigation">
+      <a href="/#games">Games</a><a href="/#studio">Studio</a><a href="/security.html">Security</a><a href="/privacy">Privacy</a><a href="/#contact">Contact</a>
+    </nav>
+    <a class="nav-cta" href="/#games">Explore games</a>
+  </header>
+
+  <main class="doc">
+    <section class="doc-hero">
+      <p class="eyebrow">Account deletion</p>
+      <h1>Delete your account<br><span>Backgammon: The Velvet Table.</span></h1>
+      <p class="lead">Use this page if you can no longer open the app, or prefer to delete your account from the web. You can also delete your account from the signed-in account menu in the app.</p>
+    </section>
+
+    <section class="doc-section" id="what">
+      <h2>What gets deleted</h2>
+      <ul>
+        <li>Your Firebase sign-in account, including your email address and password.</li>
+        <li>Your display name, portrait choice and profile stored with that account.</li>
+        <li>Friend-game rooms you hosted. Other players in those rooms are removed from them.</li>
+        <li>Your moves in friend games you joined, your guest seat in those games, and any pending join request you made.</li>
+      </ul>
+      <p>Settings stored on your device are not removed by this page. Uninstall the app or clear its storage in Android Settings to remove them. Deletion cannot be undone.</p>
+    </section>
+
+    <section class="doc-section report" id="delete">
+      <h2>Delete my account</h2>
+      <form id="delete-form" novalidate>
+        <p>
+          <label for="email">Email address</label><br>
+          <input id="email" name="email" type="email" autocomplete="username" required>
+        </p>
+        <p>
+          <label for="password">Password</label><br>
+          <input id="password" name="password" type="password" autocomplete="current-password" required>
+        </p>
+        <p>
+          <label><input id="confirm" name="confirm" type="checkbox" required> I understand that deleting my account cannot be undone.</label>
+        </p>
+        <button class="button primary" id="submit" type="submit">Delete my account</button>
+      </form>
+      <p id="status" role="status" aria-live="polite"></p>
+      <p>Forgot your password? You can still delete your account in the app, or email <a href="mailto:hello@atenplay.com?subject=Velvet%20Table%20account%20deletion">hello@atenplay.com</a> from the email address on your account. Include "Velvet Table account deletion" in the subject.</p>
+    </section>
+  </main>
+  <footer><a class="brand" href="/" aria-label="AtenPlay home"><img class="brand-mark" src="../../assets/aten-mark.svg" alt="" width="34" height="33"><span aria-hidden="true">ten<span class="brand-play">Play</span></span></a><p>© <span id="year"></span> AtenPlay. All rights reserved.</p><a href="/security.html">Security</a> <a href="/privacy">Privacy</a></footer>
+
+  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-database-compat.js"></script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    firebase.initializeApp({
+      apiKey: 'AIzaSyDahdMbkVcQXSZGNaqsMLy9yR9j1dZBUoc',
+      authDomain: 'notifyapp-201ed.firebaseapp.com',
+      databaseURL: 'https://notifyapp-201ed-default-rtdb.firebaseio.com',
+      projectId: 'notifyapp-201ed',
+      appId: '1:698392961558:web:ec9f92c9225936d7918b37'
+    });
+
+    const form = document.getElementById('delete-form');
+    const submit = document.getElementById('submit');
+    const statusEl = document.getElementById('status');
+
+    function setStatus(message, isError) {
+      statusEl.textContent = message;
+      statusEl.style.color = isError ? '#9b1c1c' : '';
+    }
+
+    // Mirrors FirebaseAccountDeletion.java: remove room data first, then delete the account.
+    async function removeFriendGameData(user) {
+      const rooms = firebase.database().ref('rooms');
+      const uid = user.uid;
+      const [hosted, joined, pending] = await Promise.all([
+        rooms.orderByChild('hostUid').equalTo(uid).get(),
+        rooms.orderByChild('guestUid').equalTo(uid).get(),
+        rooms.orderByChild('pendingJoin/uid').equalTo(uid).get()
+      ]);
+
+      const hostedIds = new Set();
+      hosted.forEach(room => { hostedIds.add(room.key); });
+      const joinedIds = new Set();
+      joined.forEach(room => { joinedIds.add(room.key); });
+      const pendingRooms = new Map();
+      pending.forEach(room => { pendingRooms.set(room.key, room); });
+
+      const removals = [];
+      hosted.forEach(room => { removals.push(room.ref.remove()); });
+      joined.forEach(room => {
+        const roomRef = room.ref;
+        if (pendingRooms.has(room.key)) removals.push(roomRef.child('pendingJoin').remove());
+        if (room.child('rtc/answer').exists()) removals.push(roomRef.child('rtc/answer').remove());
+        room.child('rtc/guestCandidates').forEach(candidate => {
+          removals.push(roomRef.child('rtc/guestCandidates').child(candidate.key).remove());
+        });
+        room.child('actions').forEach(action => {
+          if (action.child('uid').val() === uid) {
+            removals.push(roomRef.child('actions').child(action.key).remove());
+          }
+        });
+      });
+      pendingRooms.forEach((room, key) => {
+        if (!hostedIds.has(key) && !joinedIds.has(key)) {
+          removals.push(room.ref.child('pendingJoin').remove());
+        }
+      });
+      await Promise.all(removals);
+
+      // Release the guest seat in order: the rules only allow guestUid to change last.
+      const releases = [];
+      joined.forEach(room => {
+        const roomRef = room.ref;
+        releases.push(roomRef.child('guestName').set('')
+          .then(() => roomRef.child('guestAvatarId').set(0))
+          .then(() => roomRef.child('guestUid').set('')));
+      });
+      await Promise.all(releases);
+    }
+
+    function describeError(error) {
+      switch (error && error.code) {
+        case 'auth/invalid-email':
+          return 'Enter a valid email address.';
+        case 'auth/invalid-credential':
+        case 'auth/wrong-password':
+        case 'auth/user-not-found':
+          return 'The email or password is not correct.';
+        case 'auth/too-many-requests':
+          return 'Too many attempts. Wait a few minutes and try again.';
+        case 'auth/requires-recent-login':
+          return 'Sign in again and retry.';
+        case 'auth/network-request-failed':
+          return 'Network error. Check your connection and try again.';
+        default:
+          return 'Your account could not be deleted. Try again, or email hello@atenplay.com.';
+      }
+    }
+
+    form.addEventListener('submit', async event => {
+      event.preventDefault();
+      const email = form.email.value.trim();
+      const password = form.password.value;
+      if (!form.checkValidity() || !form.confirm.checked) {
+        setStatus('Enter your email, your password, and confirm that deletion cannot be undone.', true);
+        return;
+      }
+
+      submit.disabled = true;
+      setStatus('Deleting your account. Keep this page open.', false);
+      try {
+        const credential = await firebase.auth().signInWithEmailAndPassword(email, password);
+        await removeFriendGameData(credential.user);
+        await credential.user.delete();
+        form.reset();
+        form.hidden = true;
+        setStatus('Your account has been deleted. You can close this page.', false);
+      } catch (error) {
+        console.error(error);
+        setStatus(describeError(error), true);
+      } finally {
+        submit.disabled = false;
+      }
+    });
+  </script>
+</body>
+</html>

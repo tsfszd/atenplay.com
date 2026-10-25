@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Privacy policy for Go Studio (package com.atenplay.gostudio) by AtenPlay: anonymous sign-in, player profile and leaderboard, online matches, coins and purchases, ads and how to delete your data.">
+  <title>Go Studio — Privacy Policy — AtenPlay</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/styles.css">
+  <link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg">
+</head>
+<body>
+  <header class="nav" id="top">
+    <a class="brand" href="/" aria-label="AtenPlay home"><img class="brand-mark" src="../../assets/aten-mark.svg" alt="" width="34" height="33"><span aria-hidden="true">ten<span class="brand-play">Play</span></span></a>
+    <nav aria-label="Main navigation">
+      <a href="/#games">Games</a><a href="/#studio">Studio</a><a href="/security.html">Security</a><a href="/privacy">Privacy</a><a href="/#contact">Contact</a>
+    </nav>
+    <a class="nav-cta" href="/#games">Explore games</a>
+  </header>
+
+  <main class="doc">
+    <section class="doc-hero">
+      <p class="eyebrow">Privacy Policy</p>
+      <h1>Go Studio<br><span>Master the stones.</span></h1>
+      <p class="lead">This policy covers the Go Studio app for Android (package <strong>com.atenplay.gostudio</strong>), published by <strong>AtenPlay</strong>. It covers the game on your device and the online features: your player profile, the global leaderboard and online matches.</p>
+      <p class="doc-updated">Last updated: October 18, 2026</p>
+    </section>
+
+    <nav class="doc-toc" aria-label="On this page">
+      <a href="#summary">Summary</a><a href="#local">On your device</a><a href="#account">Anonymous account</a><a href="#profile">Profile and leaderboard</a><a href="#online">Online matches</a><a href="#purchases">Coins and purchases</a><a href="#ads">Advertising</a><a href="#device">Device data</a><a href="#providers">Who processes data</a><a href="#retention">How long we keep data</a><a href="#children">Children</a><a href="#delete">Deleting your data</a><a href="#rights">Your rights</a><a href="#contact-us">Contact</a>
+    </nav>
+
+    <section class="doc-section" id="summary">
+      <h2>Summary</h2>
+      <ul>
+        <li>You never give us an email address or password. The app creates an anonymous account for each installation.</li>
+        <li>If you create a profile, your display name, avatar and game statistics appear on the public leaderboard and to your online opponents.</li>
+        <li>Online matches store the moves of each game and the two players' display names and avatars.</li>
+        <li>Your coins, settings and game records stay on your device.</li>
+        <li>Purchases are processed by <strong>Google Play</strong>. The free game shows ads from <strong>Google AdMob</strong>.</li>
+        <li>There is no chat, and the app does not use your microphone, camera, contacts or precise location.</li>
+        <li>We do not sell your personal information.</li>
+      </ul>
+    </section>
+
+    <section class="doc-section" id="local">
+      <h2>On your device</h2>
+      <p>Games against the AI and two-player games on one device run entirely on your phone. Your coin balance, profile name and avatar, experience points, wins and losses, achievements, board theme and settings are saved on the device. Saving or copying a game record (SGF) happens only when you choose to, and the file goes where you choose.</p>
+      <p>Uninstalling the app or clearing its data in Android Settings&nbsp;→&nbsp;Apps deletes this on-device data, including your coin balance.</p>
+    </section>
+
+    <section class="doc-section" id="account">
+      <h2>Anonymous account</h2>
+      <p>When the app starts, it signs in to <strong>Firebase Authentication</strong> anonymously. This gives your installation a random user identifier. We do not ask for, receive or store your name, email address, phone number or password for this. The identifier is used only to link your leaderboard entry and online matches to your installation.</p>
+    </section>
+
+    <section class="doc-section" id="profile">
+      <h2>Profile and leaderboard</h2>
+      <p>Creating a profile in the app is optional. If you do, the following is stored in <strong>Cloud Firestore</strong> under your anonymous identifier:</p>
+      <ul>
+        <li>your <strong>display name</strong> (up to 24 characters, chosen by you);</li>
+        <li>the <strong>avatar</strong> you picked from the app's set;</li>
+        <li>your <strong>experience points</strong>, number of games and wins, and online wins;</li>
+        <li>the time this entry was last updated.</li>
+      </ul>
+      <p>Your display name, avatar and level are shown publicly on the Global Achievers leaderboard. Choose a display name that does not identify you if you prefer.</p>
+    </section>
+
+    <section class="doc-section" id="online">
+      <h2>Online matches</h2>
+      <p>When you start an online match, we store a match record with the board size, both players' anonymous identifiers, display names and avatars, the list of moves, the result and the times the match was created and last updated. Your opponent sees your display name, avatar and moves. Players communicate only through game moves; there is no chat.</p>
+    </section>
+
+    <section class="doc-section" id="purchases">
+      <h2>Coins and purchases</h2>
+      <p>Coin packs and Remove Ads are sold through <strong>Google Play Billing</strong>. Google Play processes your payment; AtenPlay never sees or stores your payment details. The app receives Google's confirmation of the purchase and credits the coins on your device. To avoid crediting a purchase twice, the device keeps a record of purchase tokens it has already credited.</p>
+      <p>You also earn coins by playing, from a daily bonus and by choosing to watch rewarded ads. Coins are stored on your device only.</p>
+    </section>
+
+    <section class="doc-section" id="ads">
+      <h2>Advertising (Google AdMob)</h2>
+      <p>The free app shows ads from Google AdMob: an app-open ad at start, a full-screen (interstitial) ad after a game, and rewarded ads that you choose to watch. Buying Remove Ads turns off the app-open and full-screen ads. To deliver, measure and limit ads, and to prevent fraud, the AdMob SDK may collect and process:</p>
+      <ul>
+        <li>your device's advertising ID (Android Advertising ID);</li>
+        <li>your IP address and approximate location derived from it;</li>
+        <li>device and app information such as model, operating system, language and app version;</li>
+        <li>interactions with ads, such as views and taps.</li>
+      </ul>
+      <p>Google's use of this data is governed by the <a href="https://policies.google.com/privacy">Google Privacy Policy</a>; see also <a href="https://policies.google.com/technologies/partner-sites">how Google uses information from apps that use its services</a>. You can reset or delete your advertising ID, or opt out of personalised ads, in Android Settings&nbsp;→&nbsp;Google&nbsp;→&nbsp;Ads (or Settings&nbsp;→&nbsp;Privacy&nbsp;→&nbsp;Ads).</p>
+    </section>
+
+    <section class="doc-section" id="device">
+      <h2>Device data and permissions</h2>
+      <ul>
+        <li><strong>Internet</strong> and network state: needed for the leaderboard, online matches, purchases and ads.</li>
+        <li><strong>Advertising ID</strong>: used by AdMob, as described above.</li>
+      </ul>
+      <p>The app does not request access to your microphone, camera, contacts, photos or location. It uses the Google Play in-app review prompt, which is handled by Google Play.</p>
+    </section>
+
+    <section class="doc-section" id="providers">
+      <h2>Who processes your data</h2>
+      <ul>
+        <li><strong>Google Firebase</strong> (Authentication and Cloud Firestore) stores the anonymous account, profile, leaderboard and match data described above, on servers in the European Union. Data is encrypted in transit.</li>
+        <li><strong>Google</strong> also provides Google Play Billing, Google Mobile Ads (AdMob) and the in-app review prompt.</li>
+      </ul>
+      <p>We do not sell personal information, and we share it only with these providers or where the law requires it.</p>
+    </section>
+
+    <section class="doc-section" id="retention">
+      <h2>How long we keep data</h2>
+      <ul>
+        <li><strong>Leaderboard profile:</strong> until you ask us to delete it.</li>
+        <li><strong>Online match records:</strong> kept so that matches can be resumed and results recorded; deleted on request together with your profile.</li>
+        <li><strong>On-device data:</strong> until you clear the app's data or uninstall it.</li>
+      </ul>
+    </section>
+
+    <section class="doc-section" id="children">
+      <h2>Children</h2>
+      <p>The game is not directed at children under 13. Online matches and the public leaderboard show display names chosen by players, so they are intended for players aged 13 and over. If you believe a child under 13 has provided us with personal information, contact us and we will delete it.</p>
+    </section>
+
+    <section class="doc-section" id="delete">
+      <h2>Deleting your data</h2>
+      <p>To delete your leaderboard profile and online match records, email us with the subject <em>Go Studio data deletion</em> and the display name shown on your profile. We will delete your profile and the match records linked to it within 30 days. Clearing the app's data or uninstalling the app deletes everything stored on your device and starts a new anonymous account next time.</p>
+    </section>
+
+    <section class="doc-section" id="rights">
+      <h2>Your rights</h2>
+      <p>Depending on where you live, you may have the right to access, correct or delete personal data, to object to or restrict its processing, and to withdraw consent. To exercise these rights, email us. For data held by Google, use your <a href="https://myaccount.google.com/data-and-privacy">Google Account privacy settings</a>.</p>
+      <p>We may update this policy; the date at the top shows the latest version.</p>
+    </section>
+
+    <section class="doc-section report" id="contact-us">
+      <h2>Contact</h2>
+      <p>Questions about this policy or requests about your data: email AtenPlay.</p>
+      <a class="button primary" href="mailto:tsfszd@gmail.com?subject=Go%20Studio%20privacy">tsfszd@gmail.com</a>
+    </section>
+  </main>
+  <footer><a class="brand" href="/" aria-label="AtenPlay home"><img class="brand-mark" src="../../assets/aten-mark.svg" alt="" width="34" height="33"><span aria-hidden="true">ten<span class="brand-play">Play</span></span></a><p>© <span id="year"></span> AtenPlay. All rights reserved.</p><a href="/security.html">Security</a> <a href="/privacy">Privacy</a></footer>
+  <script>document.getElementById('year').textContent=new Date().getFullYear();</script>
+</body>
+</html>

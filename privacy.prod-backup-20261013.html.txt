@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="AtenPlay privacy policy for our website, games and related online services.">
+  <title>Privacy Policy | AtenPlay</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap">
+  <link rel="stylesheet" href="/assets/styles.css">
+  <link rel="icon" href="/assets/favicon.svg">
+  <style>
+    * { letter-spacing: 0 !important; }
+    .doc-hero h1 { font-size: 40px; line-height: 1.15; }
+    .doc-section h2 { font-size: 26px; line-height: 1.25; }
+    .doc-section { padding: 32px 0; }
+    .doc-section p, .doc-section li { max-width: 850px; }
+    .doc-toc a, .nav-cta { border-radius: 5px; }
+    .doc-hero .lead { max-width: 850px; font-size: 18px; }
+    @media(max-width:480px) { .doc-hero h1 { font-size:32px; } .doc-section h2 { font-size:23px; } }
+  </style>
+</head>
+<body>
+  <header class="nav"><a class="brand" href="https://www.atenplay.com/" aria-label="AtenPlay home"><img class="brand-mark" src="/assets/aten-mark.svg" alt="" width="34" height="33"><span>ten<span class="brand-play">Play</span></span></a><nav aria-label="Main navigation"><a href="/security.html">Security</a><a href="/privacy" aria-current="page">Privacy</a></nav><a class="nav-cta" href="https://www.atenplay.com/">Home</a></header>
+  <main class="doc">
+    <section class="doc-hero"><p class="eyebrow">AtenPlay</p><h1>Privacy Policy</h1><p class="lead">This policy covers the AtenPlay website, our games and related online services. The information a particular game handles depends on the features you use, such as accounts, online play, advertising or purchases.</p><p class="doc-updated">Last updated: October 6, 2026</p></section>
+    <nav class="doc-toc" aria-label="On this page"><a href="#data">Information</a><a href="#use">Use and sharing</a><a href="#ads">Advertising</a><a href="#rights">Your choices</a><a href="#contact">Contact</a></nav>
+    <section class="doc-section" id="data"><h2>Information We Handle</h2><ul>
+      <li><strong>Accounts and profiles:</strong> email address, username, account identifier, chosen avatar and optional profile details such as display name, biography or gender. Password-based accounts use password hashes. If you choose Google sign-in, we receive the account details needed to authenticate you.</li>
+      <li><strong>Gameplay and social features:</strong> game progress, virtual balances, match participation, scores, friends and group memberships. Games with messaging features process messages and reports submitted through those features.</li>
+      <li><strong>Purchases:</strong> product identifiers, purchase tokens and transaction status used to validate purchases and provide items or plays. Google Play or other platform payment providers handle your payment details; we do not receive your payment-card number.</li>
+      <li><strong>Support:</strong> the email address, feedback, messages and other information you choose to send us.</li>
+      <li><strong>Technical information:</strong> IP addresses and operational logs associated with requests to our website and services. Advertising providers may also handle approximate location inferred from IP, device identifiers, app interactions and diagnostic information as described below. We do not request precise GPS location for advertising.</li>
+    </ul></section>
+    <section class="doc-section" id="use"><h2>How We Use and Share Information</h2><p>We use information to provide accounts and online play, maintain progress and entitlements, validate purchases, respond to support requests, operate and improve our services, and prevent abuse or fraud.</p><p>Player names, avatars and other information you choose to share through multiplayer, group or messaging features may be visible to other players. Do not include private information in public profiles or messages.</p><p>Service providers supporting hosting, email delivery, authentication, payments and advertising process information needed for those services. Advertising providers may use data for their advertising, analytics and fraud-prevention purposes. We may disclose information when required by law or when reasonably necessary to protect users and our services. Providers may process information in countries other than your own.</p></section>
+    <section class="doc-section" id="ads"><h2>Advertising and Third-Party Services</h2><p>Games that display ads may use Google AdMob and its Google Mobile Ads SDK. The SDK may collect and share IP addresses, advertising and other device identifiers, app interactions and diagnostic information for advertising, analytics and fraud prevention. The ad experience and identifiers used depend on consent, regional requirements, device settings and SDK configuration.</p><p>Where required, games present advertising consent choices. You can also manage or delete your advertising identifier in Android settings. Choosing non-personalized or limited ads does not necessarily prevent all technical data processing.</p><p>Google sign-in, Google Play purchases and other Google services are subject to Google's own policies. Our website may load fonts from Google Fonts; your browser makes requests to that provider when those fonts load.</p><p><a href="https://policies.google.com/privacy">Google Privacy Policy</a> · <a href="https://policies.google.com/technologies/ads">Google Advertising Information</a></p></section>
+    <section class="doc-section"><h2>Storage, Security and Retention</h2><p>Games may store settings, progress and sign-in information in app-private device storage. Online account and gameplay information is stored on our servers. Connections to our online services use HTTPS/TLS, and account passwords are stored as hashes rather than readable passwords. No security measure can guarantee absolute protection.</p><p>We retain information while needed to operate your account, provide the features you use and handle support requests. Retention may also be necessary for security, fraud prevention or legal obligations. Contact us for information about retention of a specific record. Information processed independently by third-party providers is governed by their retention policies.</p></section>
+    <section class="doc-section" id="rights"><h2>Your Choices and Account Deletion</h2><p>You can update available profile fields in the game. Optional profile details, feedback and messaging are your choice. Accounts may be required for online gameplay; without account information those features cannot be provided.</p><p>For games with account deletion, use the in-app deletion option or the public deletion page linked from the game's store listing. Email-link deletion requires access to the account email and an explicit confirmation. Deletion permanently removes the account and its associated data from active services; it cannot be undone. Information retained independently by payment or advertising providers is not deleted by deleting your AtenPlay account.</p><p>You can request access, correction or deletion of your personal information by emailing <a href="mailto:support@trackelan.com">support@trackelan.com</a>. We may need to verify that the account belongs to you. Depending on where you live, you may have additional rights, including objection, restriction, portability or complaint to your local privacy authority.</p></section>
+    <section class="doc-section"><h2>Children and Age Requirements</h2><p>Check each game's store listing for its intended audience and content rating. Age requirements depend on the particular game or service. If you believe a child under 13 has provided personal information to us, contact support so we can investigate and address it.</p></section>
+    <section class="doc-section"><h2>Policy Updates</h2><p>We may update this policy as our services or practices change. The date at the top identifies the latest version. Where appropriate, material changes will also be communicated through the affected service.</p></section>
+    <section class="doc-section" id="contact"><h2>Contact AtenPlay</h2><p>For privacy questions, support or account-data requests, contact <a href="mailto:support@trackelan.com">support@trackelan.com</a>. Include the relevant game or service and the nature of your request. Do not send passwords or payment-card details.</p></section>
+  </main><footer><a class="brand" href="https://www.atenplay.com/">AtenPlay</a><p>Privacy and player support</p><a href="https://www.atenplay.com/">Home</a></footer>
+</body>
+</html>
