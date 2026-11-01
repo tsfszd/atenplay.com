@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="All AtenPlay games: links to Google Play and each game's privacy page.">
+  <title>Games — AtenPlay</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/styles.css">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+</head>
+<body>
+  <header class="nav" id="top">
+    <a class="brand" href="index.html" aria-label="AtenPlay home"><img class="brand-mark" src="assets/aten-mark.svg" alt="" width="34" height="33"><span aria-hidden="true">ten<span class="brand-play">Play</span></span></a>
+    <nav aria-label="Main navigation">
+      <a href="games.html" aria-current="page">Games</a><a href="index.html#studio">Studio</a><a href="security.html">Security</a><a href="index.html#contact">Contact</a>
+    </nav>
+    <a class="nav-cta" href="games.html">All games</a>
+  </header>
+
+  <main>
+    <section class="doc">
+      <div class="doc-hero">
+        <p class="eyebrow">AtenPlay games</p>
+        <h1>Every game.<br><span>One account.</span></h1>
+      </div>
+      <p class="doc-updated">Play any AtenPlay game with the same account. Friends and groups carry over between games.</p>
+    </section>
+
+    <section class="games" aria-label="Game list">
+      <p id="games-status" class="doc-updated">Loading games…</p>
+      <div class="game-grid" id="games-grid"></div>
+    </section>
+
+    <section class="contact">
+      <p class="eyebrow">Questions?</p>
+      <h2>Get in touch.</h2>
+      <p>Account, privacy, or deletion requests: write to us and we will reply.</p>
+      <a class="button primary" href="mailto:hello@atenplay.com">hello@atenplay.com</a>
+    </section>
+  </main>
+
+  <footer>
+    <a class="brand" href="index.html" aria-label="AtenPlay home"><img class="brand-mark" src="assets/aten-mark.svg" alt="" width="34" height="33"><span aria-hidden="true">ten<span class="brand-play">Play</span></span></a>
+    <p>© <span id="year"></span> AtenPlay. All rights reserved.</p>
+    <span><a href="security.html">Security</a> · <a href="/privacy">Privacy</a> · <a href="#top">Back to top ↑</a></span>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Game data comes from the AtenPlay database (view atenplay.public_games),
+    // served by the API. Nothing about the games is hard-coded in this page.
+    const GAMES_API = 'https://api.atenplay.com/v1/public/games';
+
+    const STATUS_LABEL = {
+      LIVE: 'Available on Google Play',
+      PENDING_APPROVAL: 'Approval pending',
+      COMING_SOON: 'Coming soon'
+    };
+
+    function el(tag, className, text) {
+      const node = document.createElement(tag);
+      if (className) node.className = className;
+      if (text) node.textContent = text;
+      return node;
+    }
+
+    function buildCard(game) {
+      const card = el('article', 'game-card');
+      if (game.card_image_url) {
+        const img = el('img');
+        img.src = game.card_image_url;
+        img.alt = game.display_name;
+        img.loading = 'lazy';
+        card.appendChild(img);
+      }
+      card.appendChild(el('div', 'card-overlay'));
+
+      const copy = el('div', 'card-copy');
+      const label = STATUS_LABEL[game.status] || 'Coming soon';
+      copy.appendChild(el('span', 'status', game.genre ? label + ' • ' + game.genre : label));
+      copy.appendChild(el('h3', null, game.display_name));
+      if (game.tagline) copy.appendChild(el('p', null, game.tagline));
+
+      if (game.google_play_url) {
+        const link = el('a', null, 'Get it on Google Play ');
+        link.href = game.google_play_url;
+        link.target = '_blank';
+        link.rel = 'noopener';
+        link.setAttribute('aria-label', 'Get ' + game.display_name + ' on Google Play');
+        link.appendChild(el('span', null, '↗'));
+        copy.appendChild(link);
+      } else {
+        copy.appendChild(el('span', 'card-note', STATUS_LABEL[game.status] || 'Listing not public yet'));
+      }
+
+      if (game.privacy_url) {
+        const links = el('p', 'game-links');
+        const privacy = el('a', null, 'Privacy policy');
+        privacy.href = game.privacy_url;
+        links.appendChild(privacy);
+        copy.appendChild(links);
+      }
+
+      card.appendChild(copy);
+      return card;
+    }
+
+    async function loadGames() {
+      const status = document.getElementById('games-status');
+      const grid = document.getElementById('games-grid');
+      try {
+        const response = await fetch(GAMES_API, { headers: { Accept: 'application/json' } });
+        if (!response.ok) throw new Error('HTTP ' + response.status);
+        const games = await response.json();
+        if (!games.length) {
+          status.textContent = 'No games are listed yet.';
+          return;
+        }
+        games.forEach(game => grid.appendChild(buildCard(game)));
+        status.remove();
+      } catch (err) {
+        status.textContent = 'Games could not be loaded right now. Please try again later.';
+      }
+    }
+
+    loadGames();
+  </script>
+</body>
+</html>

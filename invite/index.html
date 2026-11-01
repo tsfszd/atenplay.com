@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Join a game — AtenPlay</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <style>
+    body { margin: 0; min-height: 100vh; display: grid; place-items: center; background: #0b1224; color: #fff; font-family: system-ui, sans-serif; }
+    main { width: min(92vw, 420px); text-align: center; padding: 28px 22px; border-radius: 18px; background: #14213d; border: 1.5px solid #ffd166; box-sizing: border-box; }
+    h1 { font-size: 22px; margin: 0 0 8px; }
+    p { color: #d6dbe6; line-height: 1.45; }
+    .code { font-size: 26px; letter-spacing: 3px; font-weight: 700; color: #ffd166; margin: 16px 0; }
+    a.button { display: block; margin-top: 12px; padding: 14px; border-radius: 12px; background: #ffd166; color: #14213d; font-weight: 700; text-decoration: none; }
+    a.secondary { background: transparent; color: #ffd166; border: 1.5px solid #ffd166; }
+    .hidden { display: none; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1 id="title">Join a game</h1>
+    <p id="intro">Use this invite code in the game to add your friend.</p>
+    <div class="code" id="code"></div>
+    <p id="fallback" class="hidden">This invite is not for a known AtenPlay game.</p>
+    <a id="open" class="button hidden" href="#">Open the game</a>
+    <a id="store" class="button secondary hidden" href="#">Get it on Google Play</a>
+  </main>
+  <script>
+    // One page for every game: /invite/<game>/<CODE>. Opens the installed game through its app link when it has one,
+    // otherwise sends the player to the game's Google Play listing.
+    var GAMES = {
+      ludolegends: { name: "Ludo Legends", pkg: "com.atenplay.ludolegends", scheme: "ludolegends" },
+      carnivalbound: { name: "CarnivalBound", pkg: "com.atenplay.carnivalbound", scheme: "carnivalbound" },
+      breakit: { name: "Break It!", pkg: "com.atenplay.breakit", scheme: "breakit" },
+      skywings: { name: "Sky Wings", pkg: "skywings.atenplay.com", scheme: "skywings" }
+    };
+    var parts = location.pathname.replace(/\/+$/, "").split("/").filter(Boolean);
+    var slug = (parts[1] || "").toLowerCase();
+    var code = (parts[2] || "").toUpperCase().replace(/[^A-Z0-9]/g, "");
+    var game = GAMES[slug];
+    var store = game ? "https://play.google.com/store/apps/details?id=" + game.pkg : "";
+
+    if (!game || code.length !== 8) {
+      document.getElementById("fallback").classList.remove("hidden");
+      document.getElementById("intro").classList.add("hidden");
+      document.getElementById("title").textContent = "Invite not found";
+    } else {
+      document.getElementById("title").textContent = "Join " + game.name;
+      document.getElementById("code").textContent = code.slice(0, 4) + "-" + code.slice(4);
+      var open = document.getElementById("open");
+      open.href = "intent://invite/" + code + "#Intent;scheme=" + game.scheme + ";package=" + game.pkg +
+        ";S.browser_fallback_url=" + encodeURIComponent(store) + ";end";
+      open.classList.remove("hidden");
+      var storeLink = document.getElementById("store");
+      storeLink.href = store;
+      storeLink.classList.remove("hidden");
+    }
+  </script>
+</body>
+</html>
