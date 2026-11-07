@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="More AtenPlay games: play with the same account, get each game on Google Play.">
+  <title>More games — AtenPlay</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/styles.css">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <style>
+    /* Built for WebView: no hover-only controls, large tap targets, cards that reflow from one column to three. */
+    html, body { -webkit-text-size-adjust: 100%; }
+    body { margin: 0; min-height: 100vh; }
+    .more { padding: 16px max(16px, env(safe-area-inset-left)) 32px max(16px, env(safe-area-inset-left)); max-width: 1200px; margin: 0 auto; }
+    .more-head h1 { font-family: 'Space Grotesk', sans-serif; font-size: 28px; margin: 4px 0 2px; }
+    .more-head p { margin: 0 0 14px; color: #9aa6b8; font-size: 15px; }
+    .tabs { display: flex; gap: 8px; overflow-x: auto; padding: 4px 0 14px; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+    .tabs::-webkit-scrollbar { display: none; }
+    .tab { flex: 0 0 auto; min-height: 44px; padding: 0 18px; border-radius: 999px; border: 1px solid #2c3d57; background: #0d1828; color: #dfe7f3; font: 600 15px 'DM Sans', sans-serif; cursor: pointer; }
+    .tab[aria-selected="true"] { background: #2dd49a; border-color: #2dd49a; color: #04161a; }
+    .more-grid { display: grid; grid-template-columns: 1fr; gap: 14px; }
+    @media (min-width: 600px) { .more-grid { grid-template-columns: repeat(2, 1fr); gap: 18px; } }
+    @media (min-width: 960px) { .more-grid { grid-template-columns: repeat(3, 1fr); } }
+    .mg-card { display: flex; flex-direction: column; background: #0d1828; border: 1px solid #22344f; border-radius: 18px; overflow: hidden; }
+    .mg-art { width: 100%; aspect-ratio: 16 / 9; background: #13233a; object-fit: cover; display: block; }
+    .mg-body { padding: 14px 16px 16px; display: flex; flex-direction: column; gap: 6px; flex: 1; }
+    .mg-status { font-size: 12px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; color: #2dd49a; }
+    .mg-status.muted { color: #9aa6b8; }
+    .mg-name { font-family: 'Space Grotesk', sans-serif; font-size: 20px; margin: 0; }
+    .mg-tag { margin: 0; color: #b8c3d4; font-size: 15px; line-height: 1.4; }
+    .mg-cta { margin-top: auto; display: flex; align-items: center; justify-content: center; min-height: 48px; border-radius: 14px; background: #2dd49a; color: #04161a; font-weight: 700; text-decoration: none; }
+    .mg-cta.disabled { background: #1b2a40; color: #9aa6b8; pointer-events: none; }
+    .mg-links { margin: 0; font-size: 13px; }
+    .mg-links a { color: #8fb4ff; }
+    .mg-status-line { color: #9aa6b8; text-align: center; padding: 32px 0; }
+    .embed .site-chrome { display: none; }
+  </style>
+</head>
+<body>
+  <header class="nav site-chrome" id="top">
+    <a class="brand" href="index.html" aria-label="AtenPlay home"><img class="brand-mark" src="assets/aten-mark.svg" alt="" width="34" height="33"><span aria-hidden="true">ten<span class="brand-play">Play</span></span></a>
+    <nav aria-label="Main navigation">
+      <a href="games.html">Games</a><a href="index.html#studio">Studio</a><a href="security.html">Security</a><a href="index.html#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main class="more" id="more">
+    <div class="more-head">
+      <h1>More games</h1>
+      <p>Play every AtenPlay game with one account.</p>
+    </div>
+
+    <div class="tabs" id="tabs" role="tablist" aria-label="Game categories"></div>
+
+    <p id="more-status" class="mg-status-line">Loading games…</p>
+    <div class="more-grid" id="more-grid" role="tabpanel"></div>
+  </main>
+
+  <footer class="site-chrome">
+    <p>© <span id="year"></span> AtenPlay. <a href="privacy.html">Privacy</a> · <a href="security.html">Security</a></p>
+  </footer>
+
+  <script>
+    // The page is shared by every AtenPlay game's "More games" tab, so it loads the same public list the website uses.
+    // Add ?embed=1 to hide the site's header and footer inside an app.
+    const GAMES_API = 'https://api.atenplay.com/v1/public/games';
+    const ALL = 'All';
+    const STATUS_LABEL = {
+      LIVE: 'Available on Google Play',
+      PENDING_APPROVAL: 'Approval pending',
+      COMING_SOON: 'Coming soon'
+    };
+
+    const params = new URLSearchParams(location.search);
+    if (params.get('embed') === '1') document.body.classList.add('embed');
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    let games = [];
+    let active = ALL;
+
+    function el(tag, className, text) {
+      const node = document.createElement(tag);
+      if (className) node.className = className;
+      if (text) node.textContent = text;
+      return node;
+    }
+
+    function genresOf(list) {
+      const set = new Set();
+      list.forEach(g => { if (g.genre) set.add(g.genre); });
+      return [ALL, ...[...set].sort()];
+    }
+
+    function renderTabs() {
+      const tabs = document.getElementById('tabs');
+      tabs.replaceChildren();
+      genresOf(games).forEach(name => {
+        const tab = el('button', 'tab', name);
+        tab.type = 'button';
+        tab.setAttribute('role', 'tab');
+        tab.setAttribute('aria-selected', String(name === active));
+        tab.addEventListener('click', () => { active = name; renderTabs(); renderGrid(); });
+        tabs.appendChild(tab);
+      });
+    }
+
+    function buildCard(game) {
+      const card = el('article', 'mg-card');
+      if (game.card_image_url) {
+        const img = el('img', 'mg-art');
+        img.src = game.card_image_url;
+        img.alt = game.display_name;
+        img.loading = 'lazy';
+        card.appendChild(img);
+      }
+      const body = el('div', 'mg-body');
+      const live = game.status === 'LIVE' && game.google_play_url;
+      const label = STATUS_LABEL[game.status] || 'Coming soon';
+      body.appendChild(el('span', live ? 'mg-status' : 'mg-status muted', game.genre ? label + ' • ' + game.genre : label));
+      body.appendChild(el('h2', 'mg-name', game.display_name));
+      if (game.tagline) body.appendChild(el('p', 'mg-tag', game.tagline));
+
+      if (live) {
+        const cta = el('a', 'mg-cta', 'Get it on Google Play');
+        cta.href = game.google_play_url;
+        cta.target = '_blank';
+        cta.rel = 'noopener';
+        cta.setAttribute('aria-label', 'Get ' + game.display_name + ' on Google Play');
+        body.appendChild(cta);
+      } else {
+        body.appendChild(el('span', 'mg-cta disabled', label));
+      }
+
+      if (game.privacy_url) {
+        const links = el('p', 'mg-links');
+        const privacy = el('a', null, 'Privacy policy');
+        privacy.href = game.privacy_url;
+        links.appendChild(privacy);
+        body.appendChild(links);
+      }
+      card.appendChild(body);
+      return card;
+    }
+
+    function renderGrid() {
+      const grid = document.getElementById('more-grid');
+      grid.replaceChildren();
+      const shown = active === ALL ? games : games.filter(g => g.genre === active);
+      shown.forEach(game => grid.appendChild(buildCard(game)));
+      const status = document.getElementById('more-status');
+      if (!games.length) status.textContent = 'No games are listed yet.';
+      else if (!shown.length) status.textContent = 'No games in this category yet.';
+      else status.remove();
+    }
+
+    async function loadGames() {
+      const status = document.getElementById('more-status');
+      try {
+        const response = await fetch(GAMES_API, { headers: { Accept: 'application/json' } });
+        if (!response.ok) throw new Error('HTTP ' + response.status);
+        // Accept both field styles: the API serves camelCase on some hosts and snake_case on others.
+        games = (await response.json()).map(g => ({
+          display_name: g.display_name || g.displayName || '',
+          tagline: g.tagline || '',
+          genre: g.genre || '',
+          status: g.status || '',
+          card_image_url: g.card_image_url || g.cardImageUrl || '',
+          google_play_url: g.google_play_url || g.googlePlayUrl || '',
+          privacy_url: g.privacy_url || g.privacyUrl || ''
+        }));
+        renderTabs();
+        renderGrid();
+      } catch (err) {
+        status.textContent = 'Games could not be loaded right now. Please try again later.';
+      }
+    }
+
+    loadGames();
+  </script>
+</body>
+</html>
